@@ -1,0 +1,12 @@
+<div [ngSwitch]="typeName">
+  <div *ngSwitchCase="'bread-top'" class="bread-top">
+    <div class="seeds1"></div>
+    <div class="seeds2"></div>
+  </div>
+  <div *ngSwitchCase="'bread-bottom'" class="bread-bottom"></div>
+  <div *ngSwitchCase="'salad'" class="salad"></div>
+  <div *ngSwitchCase="'cheese'" class="cheese"></div>
+  <div *ngSwitchCase="'meat'" class="meat"></div>
+  <div *ngSwitchCase="'bacon'" class="bacon"></div>
+  <div *ngSwitchDefault>Please choose ingredients below</div>
+</div>
