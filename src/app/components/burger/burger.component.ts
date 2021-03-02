@@ -8,10 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class BurgerComponent implements OnInit {
   @Input() public ingredients: any;
-
+  public array: any;
   ngOnInit(): void {
-    // console.log(Object.keys(this.ingredients));
+  this.array = Object.keys(this.ingredients)
+      .map(igKey => {
+          return [...Array(this.ingredients[igKey])];
+      })
+      .reduce((arr, el) => {
+          return arr.concat(el);
+      },[]);
   }
-
-
 }

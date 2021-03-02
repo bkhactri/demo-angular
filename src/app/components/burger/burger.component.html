@@ -1,7 +1,20 @@
-<div class="burger">
-  <app-ingredient [typeName]="'bread-top'"></app-ingredient>
-  <app-ingredient [typeName]="'salad'"></app-ingredient>
-  <app-ingredient [typeName]="'meat'"></app-ingredient>
-  <app-ingredient [typeName]="'cheese'"></app-ingredient>
-  <app-ingredient [typeName]="'bread-bottom'"></app-ingredient>
-</div>
+<div *ngIf="array.length == 0; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock>
+  <div class="burger">
+    <app-ingredient [typeName]="'bread-top'"></app-ingredient>
+    <h2>Please add ingredient below</h2>
+    <app-ingredient [typeName]="'bread-bottom'"></app-ingredient>
+  </div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <div class="burger">
+    <app-ingredient [typeName]="'bread-top'"></app-ingredient>
+    <div *ngFor="let item of array">
+      <app-ingredient [typeName]="item"></app-ingredient>
+    </div>
+    <app-ingredient [typeName]="'bread-bottom'"></app-ingredient>
+  </div>
+</ng-template>
+

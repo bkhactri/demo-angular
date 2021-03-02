@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent implements OnInit {
-  @Input() public type = null;
+  @Input() public type: any;
   constructor() { }
 
   ngOnInit(): void {
