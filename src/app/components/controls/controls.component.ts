@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-controls',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./controls.component.css']
 })
 export class ControlsComponent implements OnInit {
-  public items = ['salad', 'bacon', 'meat', 'cheese'];
-  constructor() { }
+  public items = ['salad', 'bacon', 'meat', 'cheese', 'beef', 'onion', 'cucumber', 'egg'];
+  @Input() addMore: any;
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

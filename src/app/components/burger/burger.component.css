@@ -1,9 +1,10 @@
 .burger {
   width: 600px;
   margin: auto;
-  height: 350px;
+  min-height: 200px;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
   overflow-y: auto;
+  margin-bottom: 40px;
 }

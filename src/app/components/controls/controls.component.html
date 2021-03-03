@@ -1,3 +1,9 @@
-<div *ngFor="let item of items">
-  <app-control [type]="item"></app-control>
-</div>
+<mat-grid-list cols="4" rowHeight="fit" style="height: 180px;">
+  <div *ngFor="let item of items">
+    <mat-grid-tile>
+      <app-control [type]="item" [added]="addMore"></app-control>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
+
+

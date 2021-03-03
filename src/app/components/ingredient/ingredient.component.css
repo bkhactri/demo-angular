@@ -111,3 +111,31 @@
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto;
 }
+
+.beef {
+  width: 80%;
+  height: 30px;
+  background: linear-gradient(#9b3c22bb, #c45e38);
+  margin: 2% auto;
+}
+
+.cucumber {
+  width: 80%;
+  height: 30px;
+  background: linear-gradient(#579220bb, #c45e38);
+  margin: 2% auto;
+}
+
+.onion {
+  width: 80%;
+  height: 30px;
+  background: linear-gradient(#52081abb, #c45e38);
+  margin: 2% auto;
+}
+
+.egg {
+  width: 80%;
+  height: 30px;
+  background: linear-gradient(#93ac27bb, #c45e38);
+  margin: 2% auto;
+}

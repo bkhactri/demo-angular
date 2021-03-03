@@ -1,6 +1,19 @@
-<div class="container">
-  <app-burger [ingredients]="ingredient"></app-burger>
-  <app-controls></app-controls>
-  <button class="btn-checkout">Check Out</button>
+<mat-toolbar class="navbar">
+  <h1 style="margin-left: 40px;">Burger Order Online</h1>
+  <div [matMenuTriggerFor]="cartMenu"><mat-icon class="cart">shopping_cart<span matBadge="2" class="badge"></span></mat-icon></div>
+</mat-toolbar>
+<div style="display: flex;">
+  <div>
+    <app-burger [ingredients]="ingredient"></app-burger>
+  </div>
+  <div class="controls">
+    <app-controls [addMore]="addIngredient"></app-controls>
+    <button mat-raised-button color="primary" class="addBtn">Add to Cart</button>
+    <mat-menu #cartMenu>
+      <button mat-menu-item>View</button>
+      <button mat-menu-item>Check out</button>
+    </mat-menu>
+  </div>
 </div>
+
 
