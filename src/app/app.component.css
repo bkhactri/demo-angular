@@ -11,6 +11,7 @@
   cursor: pointer;
 }
 
+
 .badge {
   background-color: linear-gradient(#F08E4A, #e27b36);
 }
@@ -20,6 +21,22 @@
   margin: 20px 60px;
 }
 
-.addBtn {
-  margin: 30px 120px;
+.addToCart {
+  margin-top: 60px;
+  margin-left: 18rem;
+  justify-content: center;
+}
+
+.addToCart h3 {
+  font-weight: bold;
+  padding-right: 50px;
+}
+
+.addToCart button {
+  margin-right: 1rem;
+}
+
+.current-price {
+  margin-left: 45px;
+  margin-top: 20px;
 }

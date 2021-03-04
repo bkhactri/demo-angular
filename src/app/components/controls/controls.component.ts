@@ -9,6 +9,8 @@ import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
 export class ControlsComponent implements OnInit {
   public items = ['salad', 'bacon', 'meat', 'cheese', 'beef', 'onion', 'cucumber', 'egg'];
   @Input() addMore: any;
+  @Input() removeLess: any;
+  @Input() disabled: any;
   constructor() {
   }
 

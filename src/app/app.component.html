@@ -7,8 +7,12 @@
     <app-burger [ingredients]="ingredient"></app-burger>
   </div>
   <div class="controls">
-    <app-controls [addMore]="addIngredient"></app-controls>
-    <button mat-raised-button color="primary" class="addBtn">Add to Cart</button>
+    <app-controls [addMore]="addIngredient" [removeLess]="removeIngredient" [disabled]="disabledButton"></app-controls>
+    <div class="addToCart">
+      <h3 class="current-price">Current Price: ${{price.toFixed(2)}}</h3>
+      <button mat-raised-button color="primary" class="addBtn">Add to Cart</button>
+      <button mat-raised-button color="accent" class="addBtn">Add to favorite</button>
+    </div>
     <mat-menu #cartMenu>
       <button mat-menu-item>View</button>
       <button mat-menu-item>Check out</button>

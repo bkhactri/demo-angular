@@ -1,7 +1,7 @@
 <div class="build-control">
   <div class="label">{{ type | uppercase }}</div>
   <div style="display: flex;">
-    <button class="less">Less</button>
+    <button class="less" (click)="removed(type)" [disabled]="disabledBtn">Less</button>
     <button class="more" (click)="added(type)">More</button>
   </div>
 </div>
