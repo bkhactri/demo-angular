@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, DoCheck } from '@angular/core';
 
 
 const INGREDIENT_PRICE = {
@@ -21,7 +20,7 @@ const INGREDIENT_PRICE = {
 
 
 export class AppComponent {
-  public ingredient = {
+  public ingredients = {
     salad: 0,
     bacon: 0,
     meat: 0,
@@ -31,12 +30,15 @@ export class AppComponent {
     cucumber: 0,
     egg: 0
   };
-  public disabledButton: any;
-  public price = 2;
-
+  public disabledButton;
+  public price;
+  public array;
+  public addCondition;
   constructor() {
     this.addIngredient = this.addIngredient.bind(this);
     this.removeIngredient = this.removeIngredient.bind(this);
+    this.price = 2;
+    this.addCondition =  this.price <= 2;
   }
 
   ngOnInit(): void {
@@ -44,31 +46,49 @@ export class AppComponent {
     //Add 'implements OnInit' to the class.
   }
 
+  ngDoCheck(): void {
+    //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
+    //Add 'implements DoCheck' to the class.
+    //active change to disable button
+    this.disabledButton = {...this.ingredients};
+    for(let type in this.disabledButton) {
+      this.disabledButton[type] = this.disabledButton[type] < 1;
+    }
+
+    //active change to burger view
+    this.array = Object.keys(this.ingredients)
+    .map(igKey => {
+            return [...Array(this.ingredients[igKey])].map(() => {
+              return  [...Array(igKey)];
+          });
+    })
+    .reduce((arr, el) => {
+        return arr.concat(el);
+    },[]);
+  }
+
   public addIngredient<K extends keyof object>(type: K) {
     let priceAddition = INGREDIENT_PRICE[type];
     this.price += priceAddition;
-    this.ingredient[type]++;
-    this.disabledButton = {...this.ingredient};
-    for(let type in this.disabledButton) {
-      this.disabledButton[type] = this.disabledButton[type] <= 0;
-    }
-    console.log("ingredients in app components", this.ingredient);
-    console.log("disabledButton in app components",this.disabledButton);
+    this.ingredients[type]++;
+    this.disabledButton = {...this.ingredients};
+    this.addCondition = this.price <= 2
+    // console.log("ingredients in app components", this.ingredients);
+    // console.log("disabledButton in app components",this.disabledButton);
   }
 
   public removeIngredient<K extends keyof object>(type: K) {
-    if(this.ingredient[type] <= 0){
+    if(this.ingredients[type] <= 0){
       return;
     }
     let priceAddition = INGREDIENT_PRICE[type];
     this.price -= priceAddition;
-    this.ingredient[type]--;
-    this.disabledButton = {...this.ingredient};
-    for(let type in this.disabledButton) {
-      this.disabledButton[type] = this.disabledButton[type] < 0;
-    }
-    console.log("ingredients in app components", this.ingredient);
-    console.log("disabledButton in app components", this.disabledButton);
+    this.ingredients[type]--;
+    this.disabledButton = {...this.ingredients};
+    this.addCondition = this.price <= 2
+
+    // console.log("ingredients in app components", this.ingredients);
+    // console.log("disabledButton in app components", this.disabledButton);
   }
   title = 'banhmi-builder';
 }

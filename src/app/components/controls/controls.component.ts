@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output ,EventEmitter, DoCheck } from '@angular/core';
 
 
 @Component({
@@ -8,13 +8,12 @@ import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
   public items = ['salad', 'bacon', 'meat', 'cheese', 'beef', 'onion', 'cucumber', 'egg'];
-  @Input() addMore: any;
-  @Input() removeLess: any;
-  @Input() disabled: any;
+  @Input() addMore;
+  @Input() removeLess;
+  @Input() disabled;
   constructor() {
   }
 
   ngOnInit(): void {
   }
-
 }

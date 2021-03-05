@@ -2,16 +2,16 @@
   <h1 style="margin-left: 40px;">Burger Order Online</h1>
   <div [matMenuTriggerFor]="cartMenu"><mat-icon class="cart">shopping_cart<span matBadge="2" class="badge"></span></mat-icon></div>
 </mat-toolbar>
+<app-modal [ingredients]="ingredients"></app-modal>
 <div style="display: flex;">
-  <div>
-    <app-burger [ingredients]="ingredient"></app-burger>
+  <div class="burger">
+    <app-burger [ingredients]="ingredients"></app-burger>
   </div>
   <div class="controls">
     <app-controls [addMore]="addIngredient" [removeLess]="removeIngredient" [disabled]="disabledButton"></app-controls>
     <div class="addToCart">
       <h3 class="current-price">Current Price: ${{price.toFixed(2)}}</h3>
-      <button mat-raised-button color="primary" class="addBtn">Add to Cart</button>
-      <button mat-raised-button color="accent" class="addBtn">Add to favorite</button>
+      <button mat-raised-button color="primary" class="addBtn" [disabled]="addCondition">Check</button>
     </div>
     <mat-menu #cartMenu>
       <button mat-menu-item>View</button>
